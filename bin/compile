@@ -76,7 +76,9 @@ build() {
     status "NPM Prune"
     meteor npm prune --production
     status "npm install"
-    meteor npm install -g npm@4
+    meteor npm set registry https://skimdb.npmjs.com/registry
+    
+    meteor npm install
     
     status "meteor building"
     meteor build --directory deploy --server http://localhost:3000
